@@ -32,11 +32,18 @@ def crawl(URL: str):
 def last_seen(URL: str):
 
     conn = sqlite3.connect("web_crwler.db")
+    # Create the table - only at first time.
+    conn.execute(
+        '''create table if not exists my_table (url text, html text, last_seen timestamp)''')
+
     cur = conn.cursor()
     # read the data from database
     cur.execute("select * from my_table where url = ?", [URL])
     data_from_db = cur.fetchone()
-    return f'Last Seen: {data_from_db[2]}'
+    if data_from_db[2] is not None:
+        return f'Last Seen: {data_from_db[2]}'
+
+    return f'Last Seen: Never Seen'
 
 
 def main():
