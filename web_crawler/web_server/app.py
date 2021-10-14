@@ -22,7 +22,7 @@ def func():
 @app.route('/crawl/<path:URL>', methods=['GET'])
 def crawl(URL: str):
 
-    html_content = fetch_and_save_page(URL)  # not used
+    html_content = fetch_and_save_page(URL)
     links_from_url = extract_links(str(URL))
     json_data = dumps(links_from_url, indent=4, cls=set_encoder)
     return json_data

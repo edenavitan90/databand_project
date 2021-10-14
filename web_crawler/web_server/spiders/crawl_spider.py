@@ -47,7 +47,6 @@ def fetch_and_save_page(URL):
     p = Process(target=f, args=(q, URL))
     p.start()
     result = q.get()
-    # p.terminate()  # needed ?????
     p.join()
 
     if result is not None:
