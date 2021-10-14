@@ -12,12 +12,9 @@ and will crawl to the all existing links in it and return them (they can be seen
 For example:
 We would like to use endpoint crawl/{url_path}.
 We would crawl into a given page (Google for example) so that:
-
 url_path = https://www.google.com/
-
 Therefore, our URL in the browser will be:
 http://localhost:PORT_Number/crawl/https://www.google.com/
-
 for example: 
 http://127.0.0.1:5000/crawl/https://www.google.com/
 
