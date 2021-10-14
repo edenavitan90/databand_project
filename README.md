@@ -8,7 +8,7 @@ Home Assignment Databand.ai
  <br> 
  <br> This server has 2 endpoints:
  <br> 1) crawl/{url_path} - This endpoint will be crawl to the given URL, will save the contents of the HTML file of the main given page in the database SQLite (local storage), 
- <br> and will crawl to the all existing links in it and return them (they can be seen in the browser at the appropriate address).
+ and will crawl to the all existing links in it and return them (they can be seen in the browser at the appropriate address).
  <br> For example:
  <br> We would like to use endpoint crawl/{url_path}.
  <br> We would crawl into a given page (Google for example) so that:
