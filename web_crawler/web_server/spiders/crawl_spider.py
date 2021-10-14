@@ -17,9 +17,6 @@ class crawlSpider(scrapy.Spider):
     def parse(self, response):
 
         conn = sqlite3.connect("web_crwler.db")
-        # Create the table - only at first time.
-        conn.execute(
-            '''create table if not exists my_table (url text, html text, last_seen timestamp)''')
 
         cur = conn.cursor()
         # delete the object from table (if exists)
@@ -53,6 +50,11 @@ def fetch_and_save_page(URL):
         raise result
 
     conn = sqlite3.connect("web_crwler.db")
+
+    # Create the table - only at first time.
+    conn.execute(
+        '''create table if not exists my_table (url text, html text, last_seen timestamp)''')
+
     cur = conn.cursor()
     # read the data from database
     cur.execute("select * from my_table where url = ?", [URL])

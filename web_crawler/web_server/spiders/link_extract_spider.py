@@ -24,7 +24,7 @@ class linkExtractSpider(scrapy.Spider):
         conn = sqlite3.connect("web_crwler.db")
         # Create the table - only at first time.
         conn.execute(
-            '''create table if not existsif not exists links_table (url text, links text)''')
+            '''create table if not exists links_table (url text, links text)''')
 
         cur = conn.cursor()
 
